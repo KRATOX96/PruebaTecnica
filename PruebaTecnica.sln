@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaTecnica", "PruebaTecnica\PruebaTecnica.csproj", "{811C192B-D1A8-4579-8381-707FFC788513}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{1DB4D4E3-2FF7-4B91-9BA0-2F9045DEE445}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiPruebaTecnica", "ApiPruebaTecnica\ApiPruebaTecnica.csproj", "{B0B8358B-8C1B-48BD-AAD8-A0DB0AA4C798}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{811C192B-D1A8-4579-8381-707FFC788513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{811C192B-D1A8-4579-8381-707FFC788513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{811C192B-D1A8-4579-8381-707FFC788513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{811C192B-D1A8-4579-8381-707FFC788513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B8358B-8C1B-48BD-AAD8-A0DB0AA4C798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B8358B-8C1B-48BD-AAD8-A0DB0AA4C798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B8358B-8C1B-48BD-AAD8-A0DB0AA4C798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B8358B-8C1B-48BD-AAD8-A0DB0AA4C798}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0B8358B-8C1B-48BD-AAD8-A0DB0AA4C798} = {1DB4D4E3-2FF7-4B91-9BA0-2F9045DEE445}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79EEFE84-36E7-485F-AD42-D43CB07AD643}
+	EndGlobalSection
+EndGlobal
