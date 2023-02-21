@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "30b65b1a-4695-494a-8d28-a5d03294c7fa",
+		"name": "PruebaTecnica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4657079"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "ListadoClientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7025/api/Cliente",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Jose Lema\",\r\n  \"direccion\": \"Otavalo sn y principal\",\r\n  \"telefono\": \"098254785\" ,\r\n  \"contraseña\": \"1234\",\r\n  \"estado\": true,\r\n  \"personaId\": 0,\r\n  \"identificacion\": \"personita\",\r\n  \"genero\": \"masculino\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7025/api/Cliente/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Cliente",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerCliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7025/api/Cliente/28",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Cliente",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 23,\r\n  \"nombre\": \"string\",\r\n  \"direccion\": \"string\",\r\n  \"telefono\": \"string\",\r\n  \"contraseña\": \"string\",\r\n  \"estado\": true,\r\n  \"personaId\": 27,\r\n  \"genero\": \"string\",\r\n  \"identificacion\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7025/api/Cliente/23",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Cliente",
+								"23"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuenta",
+			"item": [
+				{
+					"name": "ListadoCuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7025/api/Cuenta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Cuenta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearCuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroCuenta\": 0,\r\n  \"tipoCuenta\": \"string\",\r\n  \"saldoInicial\": true,\r\n  \"clienteId\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7025/api/Cuenta/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Cuenta",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerCuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7025/api/Cuenta/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Cuenta",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCuenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"numeroCuenta\": 0,\r\n  \"tipoCuenta\": \"string\",\r\n  \"saldoInicial\": true,\r\n  \"clienteId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7025/api/Cuenta/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Cuenta",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movimiento",
+			"item": [
+				{
+					"name": "ListadoMovimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7025/api/Movimiento",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Movimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearMovimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipoMovimiento\": \"string\",\r\n  \"valorMovimiento\": \"string\",\r\n  \"estado\": 0,\r\n  \"fecha\": \"2023-02-21T21:14:20.004Z\",\r\n  \"saldo\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7025/api/Movimiento/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Movimiento",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerMovimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7025/api/Movimiento/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Movimiento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarMovimiento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"tipoMovimiento\": \"string\",\r\n  \"valorMovimiento\": \"string\",\r\n  \"estado\": 0,\r\n  \"fecha\": \"2023-02-21T21:15:01.779Z\",\r\n  \"saldo\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7025/api/Movimiento/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7025",
+							"path": [
+								"api",
+								"Movimiento",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

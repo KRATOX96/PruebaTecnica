@@ -1,6 +1,7 @@
 ﻿using ApiPruebaTecnica.Data;
 using ApiPruebaTecnica.Models;
 using ApiPruebaTecnica.Models.DTO;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,10 +12,12 @@ namespace ApiPruebaTecnica.Controllers
 	public class ClienteController : ControllerBase
 	{
 		private readonly ApplicationDbContext _db;
+		private readonly IMapper _mapper;
 
-		public ClienteController(ApplicationDbContext db)
+		public ClienteController(ApplicationDbContext db, IMapper mapper)
 		{
 			_db = db;
+			_mapper = mapper;
 		}
 
 		[HttpGet]
@@ -42,22 +45,30 @@ namespace ApiPruebaTecnica.Controllers
 		}
 
 		[HttpPost]
-		public async Task<ActionResult<ClienteDTO>> CreateCliente([FromBody] ClienteCreateDTO clienteDTO)
+		public ActionResult<ClienteDTO> CreateCliente([FromBody] ClienteCreateDTO clienteDTO)
 		{
 			if (clienteDTO == null)
 			{
 				return  BadRequest(clienteDTO);
 			}
-			Cliente model = new()
-			{
-				Contraseña = clienteDTO.Contraseña,
-				Estado = clienteDTO.Estado,
-				PersonaId = clienteDTO.PersonaId
-			};
-			await _db.Clientes.AddAsync(model);
-			await _db.SaveChangesAsync();
 
-			return CreatedAtRoute("GetCliente", new { id = model.Id }, clienteDTO);
+
+				//Cliente model = new()
+				//{
+				//	Contraseña = clienteDTO.Contraseña,
+				//	Estado = clienteDTO.Estado,
+				//	PersonaId = clienteDTO.PersonaId
+				//};
+
+			Cliente modelCliente = _mapper.Map<Cliente>(clienteDTO);
+			Persona modelPersona = _mapper.Map<Persona>(clienteDTO);
+			 _db.Personas.Add(modelPersona);
+			 _db.SaveChanges();
+			modelCliente.PersonaId = modelPersona.Id;
+			 _db.Clientes.Add(modelCliente);
+			 _db.SaveChanges();
+
+			return CreatedAtRoute("GetCliente", new { id = modelCliente.Id }, clienteDTO);
 			//return Ok(clienteDTO);
 		}
 
@@ -91,14 +102,13 @@ namespace ApiPruebaTecnica.Controllers
 			}
 
 
-			Cliente model = new()
-			{
-				Id = clienteDTO.Id,	
-				Contraseña = clienteDTO.Contraseña,
-				Estado = clienteDTO.Estado,
-				PersonaId = clienteDTO.PersonaId
-			};
-			_db.Clientes.Update(model);
+			Cliente modelCliente = _mapper.Map<Cliente>(clienteDTO);
+			Persona modelPersona = _mapper.Map<Persona>(clienteDTO);
+			modelCliente.PersonaId = modelPersona.Id;
+
+
+			_db.Clientes.Update(modelCliente);
+			_db.Personas.Update(modelPersona);
 			await _db.SaveChangesAsync();
 			return NoContent();
 

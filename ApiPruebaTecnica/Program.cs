@@ -2,6 +2,8 @@ using Serilog.Events;
 using Serilog;
 using ApiPruebaTecnica.Data;
 using Microsoft.EntityFrameworkCore;
+using ApiPruebaTecnica;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,16 +18,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
 });
 
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 
-#region Configure serilog
-Log.Logger = new LoggerConfiguration().CreateBootstrapLogger();
-builder.Host.UseSerilog(((ctx, lc) => lc
-
-.ReadFrom.Configuration(ctx.Configuration)));
-
-
-
-#endregion
 var app = builder.Build();
 
 
@@ -36,7 +30,6 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
-app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 

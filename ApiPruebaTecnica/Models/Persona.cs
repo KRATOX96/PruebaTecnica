@@ -16,6 +16,6 @@ namespace ApiPruebaTecnica.Models
 
 		public string Direccion { get; set; }
 
-		public int telefono { get; set; }
+		public string telefono { get; set; }
 	}
 }

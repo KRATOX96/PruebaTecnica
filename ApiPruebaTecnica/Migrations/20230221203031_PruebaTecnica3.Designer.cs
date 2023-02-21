@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiPruebaTecnica.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230221165157_addPruebaTecnica")]
-    partial class addPruebaTecnica
+    [Migration("20230221203031_PruebaTecnica3")]
+    partial class PruebaTecnica3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,29 +24,6 @@ namespace ApiPruebaTecnica.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("ApiPruebaTecnica.Models.Cliente", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Contraseña")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Estado")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("PersonaId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cliente");
-                });
 
             modelBuilder.Entity("ApiPruebaTecnica.Models.Cuenta", b =>
                 {
@@ -137,6 +114,34 @@ namespace ApiPruebaTecnica.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Personas");
+
+                    b.UseTptMappingStrategy();
+                });
+
+            modelBuilder.Entity("ApiPruebaTecnica.Models.Cliente", b =>
+                {
+                    b.HasBaseType("ApiPruebaTecnica.Models.Persona");
+
+                    b.Property<string>("Contraseña")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PersonaId")
+                        .HasColumnType("int");
+
+                    b.ToTable("Cliente");
+                });
+
+            modelBuilder.Entity("ApiPruebaTecnica.Models.Cliente", b =>
+                {
+                    b.HasOne("ApiPruebaTecnica.Models.Persona", null)
+                        .WithOne()
+                        .HasForeignKey("ApiPruebaTecnica.Models.Cliente", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
